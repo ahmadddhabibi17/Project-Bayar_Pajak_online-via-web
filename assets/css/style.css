@@ -1,0 +1,420 @@
+/* ========================================================
+   1. IMPORT FONTS & VARIABLES
+   ======================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand Colors */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --accent: #3b82f6;
+  
+  /* Status Colors */
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+  
+  /* Neutral Colors */
+  --bg-main: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --border-focus: #93c5fd;
+  
+  /* Text Colors */
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-white: #ffffff;
+  
+  /* Shadows & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================================
+   2. GLOBAL RESET
+   ======================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================================
+   3. NAVBAR (COMMERCIAL SAAS STYLE)
+   ======================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.1rem 6%;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  background-clip: text; /* Properti standar CSS */
+  -webkit-background-clip: text; /* Untuk kompatibilitas browser Chrome/Safari */
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.navbar .btn-login {
+  background-color: var(--primary);
+  color: var(--text-white);
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+  transition: var(--transition);
+}
+
+.navbar .btn-login:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* ========================================================
+   4. HERO & SEARCH SECTION
+   ======================================================== */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem 6rem;
+  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+  color: var(--text-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.card-search {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--surface);
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  text-align: left;
+}
+
+/* ========================================================
+   5. LOGIN CONTAINER & LAYOUT (LUXURY CARD DESIGN)
+   ======================================================== */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 3rem 1.5rem;
+  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+  position: relative;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface);
+  padding: 2.75rem 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.login-container h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.35rem;
+}
+
+.login-container .subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* ========================================================
+   6. FORM INPUTS & BUTTONS
+   ======================================================== */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: #f8fafc;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: var(--surface);
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 0.75rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* ========================================================
+   7. ALERTS & NOTIFICATIONS
+   ======================================================== */
+.alert {
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+  animation: slideDown 0.3s ease-out;
+}
+
+.alert-danger {
+  background-color: var(--danger-bg);
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.alert-success {
+  background-color: var(--success-bg);
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* ========================================================
+   8. RESULT & CARD TABLES
+   ======================================================== */
+.container-result {
+  max-width: 640px;
+  margin: -3rem auto 4rem auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.card-detail {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.card-detail h3 {
+  border-bottom: 2px solid var(--bg-main);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.table-detail {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-detail td {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.925rem;
+}
+
+.table-detail td:first-child {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.table-detail td:last-child {
+  text-align: right;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.total-row td {
+  font-size: 1.2rem;
+  color: var(--danger) !important;
+  border-bottom: none;
+  padding-top: 1.25rem;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Layout Admin Admin Layout */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: #0f172a;
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #1e293b;
+}
+
+.sidebar-brand {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.5rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li.active a {
+    background-color: #1e293b;
+    color: #3b82f6;
+    border-left: 4px solid #3b82f6;
+}
+
+/* Main Content Area */
+.admin-content {
+    flex-grow: 1;
+    background-color: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+}
